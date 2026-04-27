@@ -50,4 +50,9 @@ class TestStringCalculator < Minitest::Test
     result = @calculator.add("//[*][%]\n1*2%3")
     assert_equal 6, result
   end
+
+  def test_returns_sum_for_multiple_long_delimiters
+    result = @calculator.add("//[***][%%]\n1***2%%3")
+    assert_equal 6, result
+  end
 end
