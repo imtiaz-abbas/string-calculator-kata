@@ -11,4 +11,8 @@ class TestStringCalculator < Minitest::Test
     assert_equal 0, result
   end
 
+  def test_returns_number_for_single_number_string
+    result = @calculator.add("6")
+    assert_equal 6, result
+  end
 end
