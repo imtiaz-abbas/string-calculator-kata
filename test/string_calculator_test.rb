@@ -40,4 +40,9 @@ class TestStringCalculator < Minitest::Test
     result = @calculator.add("2,1001")
     assert_equal 2, result
   end
+
+  def test_returns_sum_for_multi_char_custom_delimiter
+    result = @calculator.add("//[***]\n1***2***3")
+    assert_equal 6, result
+  end
 end
