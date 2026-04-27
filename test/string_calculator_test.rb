@@ -35,4 +35,9 @@ class TestStringCalculator < Minitest::Test
     error = assert_raises(RuntimeError) { @calculator.add("-1,2") }
     assert_equal "negatives not allowed: -1", error.message
   end
+
+  def test_numbers_bigger_than_1000_are_ignored
+    result = @calculator.add("2,1001")
+    assert_equal 2, result
+  end
 end
