@@ -10,9 +10,9 @@ class StringCalculator
 
   def parse(numbers)
     if numbers.start_with?("//")
-      delimiter = numbers[2]
-      numbers = numbers[4..-1]
-      numbers.split(/#{delimiter}|\n/).map(&:to_i).reject { |n| n > 1000 }
+      delimiter = numbers[2] == "[" ? numbers[/\[(.+)\]/, 1] : numbers[2]
+      numbers = numbers[numbers.index("\n") + 1..-1]
+      numbers.split(/#{Regexp.escape(delimiter)}|\n/).map(&:to_i).reject { |n| n > 1000 }
     else
       numbers.split(/,|\n/).map(&:to_i).reject { |n| n > 1000 }
     end
