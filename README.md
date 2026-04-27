@@ -34,13 +34,16 @@ ruby test/string_calculator_test.rb
 
 Following the TDD Red-Green-Refactor cycle for each requirement:
 
-- [ ] Empty string returns 0
-- [ ] Single number returns that number
-- [ ] Two numbers return their sum
-- [ ] Handle any amount of numbers
-- [ ] Handle newlines between numbers
-- [ ] Support custom delimiters
-- [ ] Throw exception for negative numbers
+- [x] Empty string returns 0
+- [x] Single number returns that number
+- [x] Two or more comma-separated numbers return their sum
+- [x] Handle newlines between numbers as a delimiter
+- [x] Support custom single-character delimiter (`//;\n1;2` returns 3)
+- [x] Throw exception for negative numbers — message includes the negative value(s)
+- [x] Numbers greater than 1000 are ignored (`2 + 1001 = 2`)
+- [x] Custom delimiter can be any length (`//[***]\n1***2***3` returns 6)
+- [x] Multiple delimiters supported (`//[*][%]\n1*2%3` returns 6)
+- [x] Multiple delimiters can each be longer than one character (`//[***][%%]\n1***2%%3` returns 6)
 
 ## Project Structure
 
