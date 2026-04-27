@@ -25,4 +25,9 @@ class TestStringCalculator < Minitest::Test
     result = @calculator.add("1\n2,3")
     assert_equal 6, result
   end
+
+  def test_returns_sum_for_custom_delimiter_string
+    result = @calculator.add("//;\n1;2")
+    assert_equal 3, result
+  end
 end
